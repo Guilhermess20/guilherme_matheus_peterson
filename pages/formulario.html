@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="../style/css.css">
+</head>
+<body>
+    <div></div>
+    <div class="formulario">
+        <form action="../pages/confirmaçao.html" method="post">
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="321@gmail" required>
+            <br><br>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite a sua senha" required>
+            <br><br>
+
+            <label for="numeros--">Informe sua idade</label>
+            <input type="number" id="idade" name="idade" placeholder="Digite a sua idade" required >
+            <button type="button" onclick="verificarIdade()">Verificar</button required>
+            <p id="resultado"></p>
+
+            <script class="script">
+                
+
+                function verificarIdade(){
+                const idade = parseInt(document.getElementById('idade').value);
+                const resultado = document.getElementById('resultado')
+
+                if(isNaN (idade)){
+                    resultado.textContent = ''
+                    return
+                }
+                if (idade >= 18){
+                    resultado.textContent = "Maior de Idade";
+                    resultado.className = "maior_idade"
+                } else if (idade > 0){
+                    resultado.textContent = "Menor de Idade"
+                    resultado.className = "menor_idade"
+                } else {
+                    resultado.textContent = "Idade inválida! Digite uma idade válida"
+                    resultado.className = "invalido"
+                }
+                }
+
+
+
+            </script>
+
+            <label for="interesse">Interesse</label>
+            <input type="checkbox" id="acao" name="interesse" value="acao">
+            <label for="acao">Ação</label>
+            <input type="checkbox" id="comedia" name="interesse" value="comedia">
+            <label for="comedia">Comédia</label>
+            <input type="checkbox" id="terror" name="interesse" value="terror">
+            <label for="terror">terror</label>
+            <input type="checkbox" id="ficcao" name="interesse" value="ficcao">
+            <label for="ficcao">Ficção Científica</label>
+            <input type="checkbox" id="romance" name="interesse" value="romance">
+            <label for="romance">Romance</label>
+            <br><br>
+
+            <label for="filmes">Preferência</label>
+            <select id="filmes" name="filmes">
+                <option value="fil">Filmes</option>
+                <option value="Brasil">Series</option>
+                <option value="dorama">Dorama</option>
+                <option value="desenho">Desenhos Animados</option>
+                <option value="desenhojapones">Desenhos Japoneses</option>
+            </select>
+            <br><br>
+
+            <br><br>
+            <label for="comentarios">Comentarios</label>
+            <br>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Escreva seu comentario..." class="comentario"></textarea>
+            <br><br>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+
+        </form>
+     </div>
+</body>
+</html>
